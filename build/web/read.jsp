@@ -13,5 +13,10 @@
         <h1>Car Inventory</h1>
         
         <%= table %>
+        
+        <br><br>
+        
+        <a href ="add"> Add A New Car</a>
+        
     </body>
 </html>

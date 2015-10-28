@@ -1,6 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controller;
 
-import dbHelpers.ReadQuery;
+import dbHelpers.AddQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -9,10 +14,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Cars;
 
-
-@WebServlet(name = "Read", urlPatterns = {"/read"})
-public class Read extends HttpServlet {
+/**
+ *
+ * @author Wade
+ */
+@WebServlet(name = "AddServlet", urlPatterns = {"/addCar"})
+public class AddServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,10 +40,10 @@ public class Read extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Read</title>");
+            out.println("<title>Servlet AddServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Read at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AddServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -52,8 +61,8 @@ public class Read extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doPost(request, response);
-
+       
+        doPost (request, response);
     }
 
     /**
@@ -67,23 +76,29 @@ public class Read extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        //Create ReadQuery helper object
-        ReadQuery rq = new ReadQuery();
         
-        //Get the HTML
-        rq.doRead();
-        String table = rq.getHTMLtable();
         
-        //Pass execution control and table to read.jsp
-       request.setAttribute("table", table);
-       String url = "/read.jsp";
-       
-       RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-       dispatcher.forward(request, response);
-       
+        String make = request.getParameter("make");
+        String model = request.getParameter("model");
+        int year = Integer.parseInt(request.getParameter("year"));
+        String color = request.getParameter("color");
         
-
+        Cars car = new Cars();
+        car.setMake(make);
+        car.setModel(model);
+        car.setYear(year);
+        car.setColor(color);
+        
+        AddQuery aq = new AddQuery();
+        
+        aq.doAdd(car);
+        
+        String url = "/read";
+        
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+        dispatcher.forward (request, response);
+        
     }
 
     /**
