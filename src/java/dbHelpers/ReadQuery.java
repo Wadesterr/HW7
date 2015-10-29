@@ -67,8 +67,37 @@ public class ReadQuery {
 
     public String getHTMLtable() {
         String table = "";
-        table += "<table border=2>";
-
+        table += "<table>";
+        
+        
+         table += "<tr>";
+         
+            table += "<th>";
+            table += "VinID";
+            table += "</th>";
+            
+            table += "<th>";
+            table += "Make";
+            table += "</th>";
+            
+            table += "<th>";
+            table += "Model";
+            table += "</th>";
+            
+            table += "<th>";
+            table += "Year";
+            table += "</th>";
+            
+            table += "<th>";
+            table += "Color";
+            table += "</th>";
+            
+            table += "<th>";
+            table += "";
+            table += "</th>";
+            
+            table += "</tr>";
+               
         try {
             while (this.results.next()) {
                 Cars car = new Cars();
@@ -78,8 +107,11 @@ public class ReadQuery {
                 car.setYear(this.results.getInt("year"));
                 car.setColor(this.results.getString("color"));
                 
+               
+             
                 table += "<tr>";
-                
+               
+                             
                 table += "<td>";
                 table += car.getVinID();
                 table += "</td>";

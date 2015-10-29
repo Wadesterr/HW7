@@ -10,14 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Add New Car</title>
+        <link href="style.css" rel="stylesheet" type="text/css" >
     </head>
-    
     <body>
-        
+                   
         <h1>Add New Car</h1>
         
         <form name="addForm" action="addCar" method="get">
-            
+            <fieldset>
             <label> Car Make:</label>
             <input type ="text" name="make" value="" />
             <br>
@@ -31,9 +31,10 @@
             <input type ="text" name="color" value="" />
             <br>
             <input type="submit" name="submit" value="submit"/>
-           
-              
+            
         </form>
+</body>
+       
         
-    </body>
+    
 </html>
