@@ -1,14 +1,17 @@
+<%-- 
+    Document   : search
+    Created on : Nov 6, 2015, 3:04:32 PM
+    Author     : Wade
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
         <link href="style.css" rel="stylesheet" type="text/css" >
+        <title>Cars</title>
     </head>
-
-    <% String table = (String) request.getAttribute("table");%>
 
     <body>
         <div class="wrap">
@@ -19,20 +22,23 @@
 
 
             <div class="main">
-                <h1>Car Inventory</h1>
+                <h1>Search Cars</h1>
 
-                <%= table%>
+                <form name="searchForm" action="search" method="get">
 
-                <br><br>
 
-                <a href ="add"> Add A New Car</a>
-                <br><br>
-                <a href="search.jsp">Search Cars</a>
+                    <input type="text" name="searchVal" value=""/>
+
+                    <br>
+
+                    <input type="submit" name="submit" value="Search"/>
+
+
+                </form>
             </div>
 
             <%@ include file="includes/footer.jsp" %>
 
         </div>
-
     </body>
 </html>

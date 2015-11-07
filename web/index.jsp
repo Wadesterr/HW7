@@ -7,11 +7,25 @@
         <link href="style.css" rel="stylesheet" type="text/css" >
     </head>
     <body>
-        <div class="center">
-   
-        <h1>Car Database</h1>
-        
-        <a href="read">View All Cars</a>
+
+        <div class="wrap">
+
+            <%@ include file="includes/header.jsp" %>
+
+            <%@ include file="includes/menu.jsp" %>
+
+
+            <div class="main">
+                <h1>Car Database</h1>
+
+                <a href="read">View All Cars</a>
+                <br><br>
+                <a href="search.jsp">Search Cars</a>
+
+            </div>
+
+            <%@ include file="includes/footer.jsp" %>
+
         </div>
-        </body>
+    </body>
 </html>

@@ -13,28 +13,41 @@
         <link href="style.css" rel="stylesheet" type="text/css" >
     </head>
     <body>
-                   
-        <h1>Add New Car</h1>
-        
-        <form name="addForm" action="addCar" method="get">
-            <fieldset>
-            <label> Car Make:</label>
-            <input type ="text" name="make" value="" />
-            <br>
-             <label> Car Model:</label>
-            <input type ="text" name="model" value="" />
-            <br>
-             <label> Car Year:</label>
-            <input type ="text" name="year" value="" />
-            <br>
-             <label> Car Color:</label>
-            <input type ="text" name="color" value="" />
-            <br>
-            <input type="submit" name="submit" value="submit"/>
-            
-        </form>
-</body>
-       
-        
-    
+        <div class="wrap">
+
+            <%@ include file="includes/header.jsp" %>
+
+            <%@ include file="includes/menu.jsp" %>
+
+
+            <div class="main">
+
+                <h1>Add New Car</h1>
+
+                <form name="addForm" action="addCar" method="get">
+                    <fieldset>
+                        <label> Car Make:</label>
+                        <input type ="text" name="make" value="" />
+                        <br>
+                        <label> Car Model:</label>
+                        <input type ="text" name="model" value="" />
+                        <br>
+                        <label> Car Year:</label>
+                        <input type ="text" name="year" value="" />
+                        <br>
+                        <label> Car Color:</label>
+                        <input type ="text" name="color" value="" />
+                        <br>
+                        <input type="submit" name="submit" value="submit"/>
+
+                </form>
+            </div>
+
+            <%@ include file="includes/footer.jsp" %>
+
+        </div>
+    </body>
+
+
+
 </html>
